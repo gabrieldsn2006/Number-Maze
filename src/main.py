@@ -1,12 +1,17 @@
+import time
+# Inicia o cronômetro assim que o arquivo começa a ser lido pelo Python
+startup_start_time = time.perf_counter()
+
 import heapq
+import sys
 import os
 
 def solve():
     # Caminho relativo para o arquivo de entrada
-    file_path = r"dados\entradas_do_problema.txt"
+    file_path = "dados/entradas_do_problema.txt"
     
     try:
-        with open(file_path, 'r') as f:
+        with open(file_path) as f:
             input_data = f.read().split()
     except FileNotFoundError:
         print(f"Arquivo não encontrado: {file_path}")
@@ -35,9 +40,9 @@ def solve():
         # Configuração do Algoritmo de Dijkstra
         # Fila de prioridade armazena tuplas no formato: (custo_acumulado, linha, coluna)
         # O custo inicial já inclui a célula de origem (0, 0)
-        pq = [(grid[0][0], 0, 0)]
+        pq = [(0, 0, 0)]
         dist = [[float('inf')] * M for _ in range(N)]
-        dist[0][0] = grid[0][0]
+        # dist[0][0] = grid[0][0]  
         
         directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
         
@@ -67,4 +72,9 @@ def solve():
         print('\n'.join(out))
 
 if __name__ == '__main__':
+    startup_end_time = time.perf_counter()
+    start_time = time.perf_counter()
     solve()
+    end_time = time.perf_counter()
+    print(f"Tempo de carregamento (parsing/imports): {startup_end_time - startup_start_time:.6f} segundos", file=sys.stderr)
+    print(f"Tempo de execução: {end_time - start_time:.4f} segundos", file=sys.stderr)
