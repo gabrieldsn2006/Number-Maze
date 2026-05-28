@@ -1,7 +1,11 @@
 """
-Não executou dentro do limite de tempo de 3 segundos do URI Online Judge 
-(caminho para print das informações da submissão: evidencias\main_py.png), 
-utilizando uma implementação do algoritmo de Dijkstra baseada em fila de prioridade 
+Este é o código que NÃO executou dentro do limite de tempo de 3 segundos do URI Online Judge.
+
+Site: https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=submit_problem&problemid=870&category=0
+
+Caminho para o print das informações da submissão: evidencias\main_py.png
+
+Código foi feito utilizando uma implementação do algoritmo de Dijkstra baseada em fila de prioridade 
 com apenas algumas otimizações.
 """
 import sys
