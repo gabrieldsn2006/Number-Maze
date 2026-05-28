@@ -1,7 +1,7 @@
 """
 Não executou dentro do limite de tempo de 3 segundos do URI Online Judge, 
-é uma implementação do algoritmo de Dijkstra baseada em fila de prioridade 
-com algumas otimizações.
+utilizando uma implementação do algoritmo de Dijkstra baseada em fila de prioridade 
+com apenas algumas otimizações.
 """
 import sys
 import heapq
