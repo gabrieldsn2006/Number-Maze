@@ -1,5 +1,6 @@
 """
-Executou dentro do limite de tempo de 3 segundos do URI Online Judge,
+Executou dentro do limite de tempo de 3 segundos do URI Online Judge
+(caminho para print das informações da submissão: evidencias\online_judge_otimizado_py.png),
 utilizando uma implementação otimizada do algoritmo de Dijkstra com fila
 de prioridade baseada em buckets (Dial's Algorithm) e leitura/escrita eficiente.
 """

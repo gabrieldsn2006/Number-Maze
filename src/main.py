@@ -1,5 +1,6 @@
 """
-Não executou dentro do limite de tempo de 3 segundos do URI Online Judge, 
+Não executou dentro do limite de tempo de 3 segundos do URI Online Judge 
+(caminho para print das informações da submissão: evidencias\main_py.png), 
 utilizando uma implementação do algoritmo de Dijkstra baseada em fila de prioridade 
 com apenas algumas otimizações.
 """
