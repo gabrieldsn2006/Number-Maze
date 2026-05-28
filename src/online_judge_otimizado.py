@@ -1,3 +1,8 @@
+"""
+Executou dentro do limite de tempo de 3 segundos do URI Online Judge,
+utilizando uma implementação otimizada do algoritmo de Dijkstra com fila
+de prioridade baseada em buckets (Dial's Algorithm) e leitura/escrita eficiente.
+"""
 import sys
 import time
 startup_start_time = time.perf_counter()

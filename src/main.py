@@ -1,11 +1,13 @@
-import time
-# Inicia o cronômetro assim que o arquivo começa a ser lido pelo Python
-startup_start_time = time.perf_counter()
-
+"""
+Não executou dentro do limite de tempo de 3 segundos do URI Online Judge, 
+é uma implementação do algoritmo de Dijkstra baseada em fila de prioridade 
+com algumas otimizações.
+"""
 import sys
 import heapq
 
 def main():
+    # Fast I/O: lê o arquivo inteiro de uma vez
     input_data = sys.stdin.read().split()
     if not input_data:
         return
@@ -84,9 +86,4 @@ def main():
     print('\n'.join(results))
 
 if __name__ == '__main__':
-    startup_end_time = time.perf_counter()
-    start_time = time.perf_counter()
     main()
-    end_time = time.perf_counter()
-    print(f"Tempo de carregamento (parsing/imports): {startup_end_time - startup_start_time:.6f} segundos", file=sys.stderr)
-    print(f"Tempo de execução: {end_time - start_time:.4f} segundos", file=sys.stderr)
