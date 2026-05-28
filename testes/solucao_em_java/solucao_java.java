@@ -1,4 +1,4 @@
-package solucao_em_java;
+package testes.solucao_em_java;
 import java.io.InputStream;
 import java.io.IOException;
 import java.util.PriorityQueue;
