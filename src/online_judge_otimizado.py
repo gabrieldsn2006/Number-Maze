@@ -8,12 +8,17 @@ Caminho para o print das informações da submissão: evidencias\online_judge_ot
 Código foi feito utilizando uma implementação otimizada do algoritmo de Dijkstra com fila
 de prioridade baseada em buckets (Dial's Algorithm) e outras pequenas otimizações.
 """
+import os
 import sys
 import time
 startup_start_time = time.perf_counter()
-def solve():
+def solve(input_path=None):
     # Fast I/O: lê o arquivo inteiro de uma vez
-    input_data = sys.stdin.read().split()
+    if input_path is not None:
+        with open(input_path, 'r', encoding='utf-8') as f:
+            input_data = f.read().split()
+    else:
+        input_data = sys.stdin.read().split()
     if not input_data:
         return
     
@@ -107,7 +112,7 @@ def solve():
 if __name__ == '__main__':
     startup_end_time = time.perf_counter()
     start_time = time.perf_counter()
-    solve()
+    solve("dados/entrada_do_problema.txt")
     end_time = time.perf_counter()
     print(f"Tempo de carregamento (parsing/imports): {startup_end_time - startup_start_time:.6f} segundos", file=sys.stderr)
     print(f"Tempo de execução: {end_time - start_time:.4f} segundos", file=sys.stderr)
