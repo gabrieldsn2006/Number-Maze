@@ -8,7 +8,7 @@ import os
 
 def solve():
     # Caminho relativo para o arquivo de entrada
-    file_path = "dados/entradas_do_problema.txt"
+    file_path = "dados/entrada_do_problema.txt"
     
     try:
         with open(file_path) as f:
@@ -37,12 +37,10 @@ def solve():
             grid.append(row)
             idx += M
             
-        # Configuração do Algoritmo de Dijkstra
-        # Fila de prioridade armazena tuplas no formato: (custo_acumulado, linha, coluna)
-        # O custo inicial já inclui a célula de origem (0, 0)
+        
         pq = [(0, 0, 0)]
         dist = [[float('inf')] * M for _ in range(N)]
-        # dist[0][0] = grid[0][0]  
+          
         
         directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
         
