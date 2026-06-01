@@ -8,7 +8,7 @@ import os
 
 def solve():
     # Caminho relativo para o arquivo de entrada
-    file_path = "dados/entradas_do_problema.txt"
+    file_path = "dados/entrada_do_problema.txt"
     
     try:
         with open(file_path) as f:
