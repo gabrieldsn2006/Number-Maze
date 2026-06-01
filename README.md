@@ -1,7 +1,41 @@
-# Number-Maze
+# UVA 929 - Number Maze
 
 ## Link
 https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=submit_problem&problemid=870&category=0
+
+## Integrantes do Grupo
+- Victor Lins Gurgel do Amaral      - 2410448
+- Gabriel de Sousa Nobre            - 2410399
+- Lorenzo Barros Calheiros Pinheiro - 2410428
+
+## Linguagem Utilizada
+- Python
+
+## Como Executar a Solução
+
+A solução consome os dados através da entrada padrão (`sys.stdin`). Para executá-la, basta abrir o terminal na pasta raiz do projeto e redirecionar o arquivo de entrada desejado.
+
+**No PowerShell (Windows):**
+```powershell
+Get-Content dados\entrada_do_problema.txt | python src\online_judge_otimizado.py
+ou
+cat dados\entrada_do_problema.txt | python src\online_judge_otimizado.py
+```
+**No Linux / macOS:**
+```bash
+cat dados/entrada_do_problema.txt | python3 src/online_judge_otimizado.py
+```
+
+## Modelagem do Problema e Representação Adotada
+O problema foi modelado como um grafo direcionado e ponderado, onde:
+* **Vértices:** Cada célula $(i, j)$ da matriz do labirinto representa um vértice.
+* **Arestas e Pesos:** Cada vértice possui arestas direcionadas para os seus vizinhos ortogonais (cima, baixo, esquerda, direita). O **peso** (custo) de cada aresta para entrar em um vértice vizinho é exatamente o número contido na célula de destino.
+* **Representação Adotada:** Para maximizar a performance e evitar a sobrecarga de memória gerada por matrizes 2D ou listas de adjacência pesadas, a matriz $N \times M$ fornecida pela entrada foi achatada em um único **Array 1D (Flat Array)**. O acesso aos vizinhos é feito por aritmética de índices (ex: o vizinho de baixo é encontrado somando o número total de colunas ao índice atual).
+
+## Algoritmo Utilizado e Variações
+* **Algoritmo Base:** Algoritmo de Dijkstra.
+* **Variação Utilizada (Algoritmo de Dial):** Como o enunciado garante que os pesos das células variam estritamente entre $0$ e $9$, foi possível aplicar uma versão altamente otimizada do Dijkstra conhecida como **Algoritmo de Dial**. 
+Nesta variação, descartamos a Fila de Prioridade baseada em *Binary Heap* (que teria custo de inserção de $\mathcal{O}(\log V)$) e adotamos o uso de **Buckets (Baldes)**. Criamos apenas 10 listas atuando como uma fila circular, reduzindo as operações de atualização e busca do próximo vértice mais próximo para o tempo constante de **$\mathcal{O}(1)$**. Apenas caminhos estritamente menores têm seus vizinhos adicionados aos buckets.
 
 ## Análise de Complexidade
 
@@ -30,3 +64,13 @@ Para analisarmos a complexidade de tempo (Big-O) das implementações, vamos pri
 *   Remover um elemento de um bucket (`pop`) custa $\mathcal{O}(1)$.
 *   O algoritmo gasta um pequeno tempo extra avançando o cursor de distância `d` para achar o próximo bucket não vazio. No pior dos casos, esse cursor avança até a distância máxima possível, que é limitada por $V \times W$.
 *   A complexidade teórica do algoritmo de Dial para um único caso de teste é $\mathcal{O}(E + V \times W)$. Como $E \approx 4V$ e $W = 9$ (uma constante muito pequena), a equação vira $\mathcal{O}(4V + 9V) = \mathcal{O}(13V)$, que na notação Big-O é simplificada para **$\mathcal{O}(V)$**.
+
+### Complexidade de Espaço (Memória)
+**Big-O Total: $\mathcal{O}(V)$**
+
+A estrutura dominante de memória na nossa solução otimizada é o armazenamento das células do labirinto e de suas distâncias mínimas. Como transformamos a matriz bidimensional em um Flat Array, utilizamos uma lista `grid` de tamanho $V$ e um array de distâncias `_dist` de tamanho $V$. A fila de prioridade baseada em `buckets` ocupa espaço máximo proporcional à quantidade de vértices na fila (limitado a $V$). Portanto, a complexidade de espaço é estritamente linear: **$\mathcal{O}(V)$**.
+
+## Evidência de Accepted
+Abaixo encontra-se a comprovação de que a solução foi aceita nos limites de tempo do URI Online Judge:
+
+![Print do Accepted no URI Online Judge](evidencias/online_judge_otimizado_py.png)
