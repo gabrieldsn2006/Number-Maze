@@ -35,7 +35,7 @@ O problema foi modelado como um grafo direcionado e ponderado, onde:
 ## Algoritmo Utilizado e Variações
 * **Algoritmo Base:** Algoritmo de Dijkstra.
 * **Variação Utilizada (Algoritmo de Dial):** Como o enunciado garante que os pesos das células variam estritamente entre $0$ e $9$, foi possível aplicar uma versão altamente otimizada do Dijkstra conhecida como **Algoritmo de Dial**. 
-Nesta variação, descartamos a Fila de Prioridade baseada em *Binary Heap* (que teria custo de inserção de $\mathcal{O}(\log V)$) e adotamos o uso de **Buckets (Baldes)**. Criamos apenas 10 listas atuando como uma fila circular, reduzindo as operações de atualização e busca do próximo vértice mais próximo para o tempo constante de **$\mathcal{O}(1)$**. Apenas caminhos estritamente menores têm seus vizinhos adicionados aos buckets.
+Nesta variação, descartamos a Fila de Prioridade baseada em *Binary Heap* (que teria custo de inserção de **$\mathcal{O}(log V)$**) e adotamos o uso de **Buckets (Baldes)**. Criamos apenas 10 listas atuando como uma fila circular, reduzindo as operações de atualização e busca do próximo vértice mais próximo para o tempo constante de **$\mathcal{O}(1)$**. Apenas caminhos estritamente menores têm seus vizinhos adicionados aos buckets.
 
 ## Análise de Complexidade
 
